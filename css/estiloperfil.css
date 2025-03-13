@@ -1,0 +1,80 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: url('https://wallpapers.com/images/hd/penguin-linux-logo-dr0qifomymj9ihc2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-right: 50px; 
+}
+
+
+.caja-perfil {
+    background: rgba(30, 30, 30, 0.9); 
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px; 
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    animation: aparecer 1s ease-in-out;
+}
+
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.caja-perfil h2 {
+    margin-bottom: 15px;
+}
+
+.caja-perfil p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+
+.caja-perfil a, 
+.caja-perfil button {
+    width: 80%;
+    padding: 12px;
+    margin: 8px auto; 
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, border-color 0.3s;
+}
+
+.caja-perfil a {
+    background: #2a2a2a;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #444;
+}
+
+.caja-perfil a:hover {
+    background: #00d4ff;
+    border-color: #00d4ff;
+    transform: scale(1.05);
+}
+
+.btn-eliminar {
+    background: #d63031;
+    color: white;
+    border: 1px solid #b71c1c;
+}
+
+.btn-eliminar:hover {
+    background: #ff3f34;
+    border-color: #ff1e00;
+    transform: scale(1.05);
+}

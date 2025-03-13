@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/518/518713.png">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/estilos_login.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h2>Iniciar Sesión</h2>
+        <form action="php/iniciar_sesion.php" method="POST">
+            <input type="email" name="correo" placeholder="Correo electrónico" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p>¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+    </div>
+</body>
+</html>

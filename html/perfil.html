@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/518/518713.png">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="../css/estiloperfil.css">
+</head>
+<body>
+
+    <div class="caja-perfil">
+        <h2 id="nombre-usuario">Perfil de ...</h2>
+        <p><strong>Correo:</strong> <span id="correo"></span></p>
+        <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+        <p><strong>Carrera:</strong> <span id="carrera"></span></p>
+        
+        <a href="../php/cerrar_sesion.php">Cerrar Sesión</a>
+        <a href="editar_perfil.html">Editar Perfil</a>
+        <button class="btn-eliminar" onclick="eliminarCuenta()">Eliminar Cuenta</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../php/perfil_datos.php")
+                .then(response => response.json())
+                .then(usuario => {
+                    if (usuario.error) {
+                        alert("Debes iniciar sesión.");
+                        window.location.href = "../login.html";
+                    } else {
+                        document.getElementById("nombre-usuario").innerText = "Perfil de " + usuario.nombre;
+                        document.getElementById("correo").innerText = usuario.correo;
+                        document.getElementById("telefono").innerText = usuario.telefono;
+                        document.getElementById("carrera").innerText = usuario.carrera;
+                    }
+                })
+                .catch(error => console.error("Error al cargar los datos:", error));
+        });
+
+        function eliminarCuenta() {
+            if (confirm("¿Estás seguro de que quieres eliminar tu cuenta?")) {
+                window.location.href = "../php/eliminar.php";
+            }
+        }
+    </script>
+
+</body>
+</html>

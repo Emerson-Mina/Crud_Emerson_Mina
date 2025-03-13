@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="../css/editar_perfil.css">
+</head>
+<body>
+    <div class="caja-perfil">
+        <h2>Editar Perfil</h2>
+        <form id="form-editar" action="../php/actualizar.php" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" required>
+
+            <label for="carrera">Carrera:</label>
+            <input type="text" id="carrera" name="carrera" required>
+
+            <button type="submit">Guardar Cambios</button>
+        </form>
+        <a href="perfil.html">Volver</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../php/perfil_datos.php")
+                .then(response => response.json())
+                .then(usuario => {
+                    if (usuario.error) {
+                        alert("Debes iniciar sesión.");
+                        window.location.href = "../login.html";
+                    } else {
+                        document.getElementById("nombre").value = usuario.nombre;
+                        document.getElementById("telefono").value = usuario.telefono;
+                        document.getElementById("carrera").value = usuario.carrera;
+                    }
+                })
+                .catch(error => console.error("Error al cargar los datos:", error));
+        });
+    </script>
+</body>
+</html>
